@@ -7,11 +7,57 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="/detect" routerLinkActive="active">Edit Profile</a>
+        <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#" routerLink="/predict" routerLinkActive="active">Logout</a>
+        <a class="nav-link" href="#" routerLink="/mydiary" routerLinkActive="active">My Diary</a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active">Logout</a>
+      </li>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="modal" data-target="#myModal">Edit Profile</button>
     </ul>
   </div>
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputName">Name:</label>
+              <input type="text" class="form-control" id="inputName" placeholder="Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPhone">Phone:</label>
+              <input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputUsername">Username:</label>
+              <input type="text" class="form-control" id="inputUsername" placeholder="username">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Password:</label>
+              <input type="password" class="form-control" id="inputPassword" placeholder="password">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

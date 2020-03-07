@@ -2,22 +2,29 @@
   
 </app-navbar>
 <div class="container-fluid">
-  <div class="row" style="border: 1px; border-color: black">
-    <div class="col bg-success" style="border: 10px">PICTURE
-    <p><button>click photo</button></p>
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <br/><br/>
+      <p>Click the below button to open up your web camera and<br/> capture an image.</p>
+      <div class="pb-2" style="margin: 0; text-align: center;">
+        <button class="btn btn-primary" (click)="detect_emotion_from_face()" style="position: relative;">Capture Image</button>
+      </div>
     </div>
-    <div class="col" style="border: 1px">
-      VOICE
-      <p><button>RECORD</button></p>
+    <div class="col-md-6 col-sm-6">
+      <br/><br/>
+      <p>How about talking to us about what you're feeling? Record an audio clip below <br/> and let us take care of you. Don't hold back!</p>
+      <div>
+        <button class="start-button" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
+        <button class="stop-button" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
+        <button class="cancel-button" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
+        <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+        <div>
+          <audio *ngIf="!isRecording && blobUrl"  controls>
+            <source [src]="blobUrl" type="audio/webm">
+          </audio>
+        </div>
+        <button class="btn btn-primary" (click)="detect_emotion_from_audio()">Submit Audio</button>
+      </div>
     </div>
-    <div class="col" style="border: 1px">
-      TEXT
-    </div>
-  </div>
-</div>
-<div>
-  <div class="row" >
-    
-      <button style="margin-left: 650px"> Submit you work to  people</button>
   </div>
 </div>

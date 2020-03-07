@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MyDiaryComponent } from './my-diary/my-diary.component';
 import { PublicFeedComponent } from './public-feed/public-feed.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http'
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { PublicFeedComponent } from './public-feed/public-feed.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { ApiCallerService } from './../services/api-caller.service';
 // import { Component, OnInit } from '@angular/core';
 
 // @Component({
@@ -19,6 +20,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
+  providers: [ ApiCallerService ],
   templateUrl: './login-model.component.html',
   styleUrls: ['./login-model.component.css']
 })
@@ -28,25 +30,21 @@ export class LoginModelComponent implements OnInit {
   loginEmail: string;
   loginPwd: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _api: ApiCallerService) { }
 
   ngOnInit() {
-    // if(!this.auth.getCurrentUser() != null) {
-    //   this.router.navigate(['/searchPage']);
-    // }
   }
 
   attemptLogin() {
-    // if(this.loginEmail != null && this.loginEmail.trim() != "" && this.loginPwd != null && this.loginPwd.trim() != "") {
-    //   this.auth.login(this.loginEmail, this.loginPwd).subscribe(res => {
-    //     console.log(res);
-    //     this.auth.setCurrentUser(this.loginEmail);
-    //     this.router.navigate(['/welcome']);
-    //   });
-    // } else {
-    //   this.errorMsg = "Username and Password cannot be blank strings.";
-    // }
+    if(this.loginEmail != null && this.loginEmail.trim() != "" && this.loginPwd != null && this.loginPwd.trim() != "") {
+      this._api.doPostRequest("/login",{"username": this.loginEmail, "password": this.loginPwd}).subscribe(res => {
+        console.log(res);
+        window.localStorage.setItem("CURRENT_USER", this.loginEmail);
+        this.router.navigate(['/welcome']);
+      });
+    } else {
+      this.errorMsg = "Username and Password cannot be blank strings.";
+    }
   }
 
 }
-
