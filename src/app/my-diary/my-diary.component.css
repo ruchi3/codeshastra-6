@@ -1,0 +1,10 @@
+.col 
+{
+height:500px;
+border-block-color: black;
+border: 1px;
+}
+
+.row{
+    align:center;
+}
